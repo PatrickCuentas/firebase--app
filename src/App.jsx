@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Dashboard from './components/app/Dashboard'
-import AuthRouter from './routes/AuthRouter'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import Login from './components/auth/Login'
@@ -8,6 +7,7 @@ import Register from './components/auth/Register'
 import PrivateRoute from './routes/PrivateRoute'
 import GridLoader from 'react-spinners/GridLoader'
 import { Box } from '@chakra-ui/react'
+
 function App() {
   const auth = getAuth()
   const user = auth.currentUser

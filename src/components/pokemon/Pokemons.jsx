@@ -1,8 +1,5 @@
-import { app } from '../firebaseConfig'
-import { doc, getDocs, collection, query, where } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
-import { Badge, Box, Image, SimpleGrid, Grid, GridItem } from '@chakra-ui/react'
-
+import { Box, Grid } from '@chakra-ui/react'
 import Pokemon from './Pokemon'
 
 const getPokemons = async () => {
@@ -24,19 +21,14 @@ const loadPokemons = async pokemons => {
     })
   })
   const data = await Promise.all(pokemonsData)
-  // console.log(data)
   return data
 }
 
-function App() {
+function Pokemons() {
   const [pokemons, setPokemons] = useState([])
 
   useEffect(() => {
     getPokemons().then(loadPokemons).then(setPokemons)
-  }, [])
-
-  useEffect(() => {
-    console.log(pokemons[0])
   }, [])
 
   return (
@@ -50,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default Pokemons

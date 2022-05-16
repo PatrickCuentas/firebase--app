@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import { useEffect } from 'react'
-
+import Pokemons from "../pokemon/Pokemons.jsx"
 const Dashboard = () => {
 
   // updatePassword(user,newPassword).then(()=> {
@@ -8,8 +8,8 @@ const Dashboard = () => {
   // })
 
   return (
-    <Box>
-      <Box as="h1">Private Route</Box>
+    <Box> 
+      <Pokemons />
     </Box>
   )
 }
