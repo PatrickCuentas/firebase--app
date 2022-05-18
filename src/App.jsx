@@ -1,10 +1,11 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Dashboard from './components/app/Dashboard'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useEffect, useState } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Dashboard from './components/app/Dashboard'
 import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
 import GridLoader from 'react-spinners/GridLoader'
 import { Box } from '@chakra-ui/react'
 
@@ -44,8 +45,11 @@ function App() {
         <Route path="/" element={<PrivateRoute isAuthenticated={isLoggedIn} />}>
           <Route path={'/'} element={<Dashboard />} />
         </Route>
-        <Route path="auth">
-          <Route path="login" element={<Login isLoggedIn={isLoggedIn} />} />
+        <Route
+          path="auth"
+          element={<PublicRoute isAuthenticated={isLoggedIn} />}
+        >
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
         <Route

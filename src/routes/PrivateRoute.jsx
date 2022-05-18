@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Route, Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
   return (
